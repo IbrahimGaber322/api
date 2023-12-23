@@ -22,7 +22,7 @@ export default function Home() {
         alignItems="center"
       >
         <Text color="white" fontSize={30} fontFamily="cursive">
-          Welcome to my blog, where different APIS meet.
+          Welcome to my API website, where different APIS meet.
         </Text>
         <Flex gap={2} alignItems="center" flexDirection="column">
           <a className={`${styles.button}`} href="/posts">
