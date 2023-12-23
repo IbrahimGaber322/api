@@ -63,7 +63,7 @@ const movieOptions = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMjhjNGNkOGRhYzEzNGIxMmIwYzE3YWJiNTVlYjIwNyIsInN1YiI6IjYzNjk1NWZiMTY4NGY3MDA3YTliZjRkYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XiVTglc3cbq67hBraVAkJfw7sNlbeUh_aXcfaHMtdR4",
+      `Bearer ${process.env.NEXT_PUBLIC_MOVIE_AUTH}`,
   },
 };
 export const fetchMovies = fetch(
