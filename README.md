@@ -1,6 +1,6 @@
-# Blog Website
+# API Website
 
-This is a blog website built using Next.js and Chakra UI. It allows users to create and read blog posts. In this README file, you will find instructions on how to set up and run the project, as well as information about the design decisions, libraries, and tools used.
+This is an api website built using Next.js and Chakra UI. It allows users to create and read blog posts. In this README file, you will find instructions on how to set up and run the project, as well as information about the design decisions, libraries, and tools used.
 
 ## Table of Contents
 
