@@ -1,21 +1,12 @@
 "use client";
-import Image from "next/image";
-import CreatePost from "@/components/forms/CreatePost";
-import { Button, Flex, CircularProgress, SimpleGrid } from "@chakra-ui/react";
+import styles from "../../components/css_modules/root.module.css"
+import { Button, Flex, CircularProgress, SimpleGrid, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { useQuery } from "react-query";
-import { fetchPosts } from "../api";
-import PostCard from "@/components/cards/PostCard";
-import Pagination from "@/components/Pagination";
+
 
 export default function Home() {
-  const [createPost, setCreatePost] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(1);
-  const { isLoading, error, data }: { isLoading: any; error: any; data: any } =
-    useQuery("Posts", () => fetchPosts);
-  const pagesNumber = Math.ceil(data?.length / 10);
 
-  const posts = data?.slice((page - 1) * 10, page * 10);
+  
   return (
     <main>
       <Flex
@@ -24,28 +15,17 @@ export default function Home() {
         gap={4}
         width={{ base: "90%", md: "70%" }}
         mx="auto"
+        justifyContent="center"
+        alignItems="center"
       >
-        <Flex mt={5} justifyContent="center">
-          <Button colorScheme="blue" onClick={() => setCreatePost(!createPost)}>
-            Create a Post
-          </Button>
-        </Flex>
+       
 
-        {createPost && <CreatePost />}
-        {isLoading ? (
-          <Flex justifyContent={"center"}>
-            <CircularProgress isIndeterminate color="blue" />
-          </Flex>
-        ) : (
-          <SimpleGrid minChildWidth="300px" spacing="40px" p={4}>
-            {posts?.map((post: any) => (
-              <PostCard title={post.title} body={post.body} id={post.id} />
-            ))}
-          </SimpleGrid>
-        )}
-        <Flex mt="auto" justifyContent="center">
-          <Pagination page={page} setPage={setPage} pagesNumber={pagesNumber} />
-        </Flex>
+         <Text color="white" fontSize={30} fontFamily="cursive">Welcome to my blog, where different APIS meet.</Text>
+         <Flex gap={2} justifyContent="center">
+             <a className={`${styles.button}`} href="/posts">Go to posts from json placeholder api.</a>
+             <a className={`${styles.button}`} href="/users">Go to users from json dummyjson api.</a>
+             <a className={`${styles.button}`} href="/movies">Go to movies from moviedb api.</a>
+         </Flex>
       </Flex>
     </main>
   );

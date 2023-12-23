@@ -7,6 +7,7 @@ import {
   CardFooter,
   Button,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
 const truncateText = (text: string, maxLength: number) => {
   if (text?.length <= maxLength) {
@@ -16,13 +17,13 @@ const truncateText = (text: string, maxLength: number) => {
   }
 };
 
-const PostCard = ({
+const UserCard = ({
   title,
-  body,
+  image,
   id,
 }: {
   title: string;
-  body: string;
+  image: string;
   id: number;
 }) => {
   return (
@@ -35,20 +36,14 @@ const PostCard = ({
       <Stack>
         <CardBody>
           <Heading size="md">{title}</Heading>
-
-          <Text py="2">{truncateText(body, 100)}</Text>
+          <img src={image} width={"100%"} height={200} alt={image} />
+          {/* <Text py="2">{truncateText(body, 100)}</Text> */}
         </CardBody>
 
-        <CardFooter>
-          <Link href={`/posts/${id}`}>
-            <Button variant="solid" colorScheme="blue">
-              View Post
-            </Button>
-          </Link>
-        </CardFooter>
+       
       </Stack>
     </Card>
   );
 };
 
-export default PostCard;
+export default UserCard;

@@ -2,3 +2,21 @@ body {
     background-image: url('../public/assets/low_poly_banner_design_1711.jpg');
     background-attachment: fixed;
 }
+
+.movie-desc {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    bottom: -100%; /* Start offscreen */
+    left: 0;
+    right: 0;
+    transition: bottom 0.8s ease; /* Added transition for smooth animation */
+}
+
+
+.movie-parent:hover .movie-desc{
+    bottom: 0;
+}

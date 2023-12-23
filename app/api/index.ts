@@ -40,24 +40,33 @@ export const fetchPosts = fetch(
   "https://jsonplaceholder.typicode.com/posts"
 ).then((res) => res.json());
 
-export const fetchPost = async (id: number) => {
-  let post;
-  let comments;
-  await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-    .then((res) => res.json())
-    .then((json) => (post = json));
+export const fetchPost = async (id: number) =>
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) =>
+    res.json()
+  );
 
-  await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
-    .then((res) => res.json())
-    .then((json) => (comments = json));
-  return { post, comments };
+export const fetchComments = async (id: number) =>
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) =>
+    res.json()
+  );
+
+export const fetchUsers = fetch("https://dummyjson.com/users").then((res) =>
+  res.json()
+);
+
+export const fetchUser = fetch("https://dummyjson.com/users/1").then((res) =>
+  res.json()
+);
+
+const movieOptions = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMjhjNGNkOGRhYzEzNGIxMmIwYzE3YWJiNTVlYjIwNyIsInN1YiI6IjYzNjk1NWZiMTY4NGY3MDA3YTliZjRkYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XiVTglc3cbq67hBraVAkJfw7sNlbeUh_aXcfaHMtdR4",
+  },
 };
-
-export const fetchComments = async (id: number) => {
-  let comments;
-  await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-    .then((res) => res.json())
-    .then((json) => (comments = json));
-
-  return comments;
-};
+export const fetchMovies = fetch(
+  `https://api.themoviedb.org/3/movie/top_rated`,
+  movieOptions
+).then((res) => res.json());

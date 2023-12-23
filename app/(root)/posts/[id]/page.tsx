@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useQuery } from "react-query";
-
+import styles from "../../../../components/css_modules/root.module.css"
 const page = ({ params }: { params: { id: string } }) => {
   if (!params.id) return null;
   const { isLoading, error, data }: { isLoading: any; error: any; data: any } =
@@ -83,6 +83,7 @@ const page = ({ params }: { params: { id: string } }) => {
                 <Button colorScheme="blue">Return to home</Button>
               </Link>
             </Flex>
+            <a className={`${styles.button}`} href="/posts">Go back to posts.</a>
           </Flex>
         </Box>
       )}
