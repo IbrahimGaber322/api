@@ -38,7 +38,7 @@ export default function Home() {
       >
         <Flex mt={5} justifyContent="center">
           <Text color="white" fontSize="30px" fontWeight="700">
-            Users
+            Top IMDb Movies
           </Text>
         </Flex>
 
